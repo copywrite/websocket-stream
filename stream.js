@@ -59,7 +59,7 @@ function WebSocketStream(target, protocols, options) {
   proxy.on('close', destroy)
 
   function socketWriteNode(chunk, enc, next) {
-    socket.send(chunk, next)
+    socket.send(new Buffer(chunk).toString(), next)
   }
 
   function socketWriteBrowser(chunk, enc, next) {
